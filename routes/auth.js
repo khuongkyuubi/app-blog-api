@@ -26,10 +26,10 @@ router.post("/register", async (req, res) => {
 router.post("/login", async (req, res) => {
   try {
     const user = await User.findOne({ username: req.body.username });
+
     if (!user) return res.status(400).json({ message: "Wrong credentials" });
 
     const validate = await bcrypt.compare(req.body.password, user.password);
-
     if (!validate) return res.status(400).json({ message: "Wrong password!" });
     const { password, ...userInfo } = user["_doc"]; // data in -_doc
 
