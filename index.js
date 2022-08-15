@@ -61,7 +61,6 @@ app.use("/api/posts", postsRouter);
 //categories route
 app.use("/api/categories", categoriesRouter);
 
-app;
 connectDb();
 app.listen(PORT, () => {
   console.log("listening on port " + PORT);
