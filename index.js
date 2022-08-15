@@ -25,6 +25,9 @@ const upload = multer({ storage });
 //use static files
 app.use("/images", express.static("images"))
 
+app.get("/, (req, res)=> {
+return res.json({hello: "hello"})})
+
 //Route only for upload file (image in this case)
 app.post("/api/upload", upload.single("file"), (req, res) => {
   return res.status(200).json("File has been uploaded!");
