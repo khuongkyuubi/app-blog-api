@@ -25,7 +25,7 @@ const upload = multer({ storage });
 //use static files
 app.use("/images", express.static("images"))
 
-app.get("/, (req, res)=> {
+app.get("/", (req, res)=> {
 return res.json({hello: "hello"})})
 
 //Route only for upload file (image in this case)
